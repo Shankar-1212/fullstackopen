@@ -3,35 +3,47 @@ const Header = (props) => {
     <>
       <h1>{props.course}</h1>
     </>
-  )
-}
+  );
+};
 
 const Part = (props) => {
   return (
     <>
-      <p>{props.part} {props.exercise}</p>
+      <p>
+        {props.part} {props.exercise}
+      </p>
     </>
-  )
-}
+  );
+};
 
 const Content = (props) => {
-  
   return (
     <>
-      <Part part={props.course.parts[0]["name"]} exercise={props.course.parts[0]["exercises"]}/>
-      <Part part={props.course.parts[1]["name"]} exercise={props.course.parts[1]["exercises"]}/>
-      <Part part={props.course.parts[2]["name"]} exercise={props.course.parts[2]["exercises"]}/>
+      <Part
+        part={props.course.parts[0]["name"]}
+        exercise={props.course.parts[0]["exercises"]}
+      />
+      <Part
+        part={props.course.parts[1]["name"]}
+        exercise={props.course.parts[1]["exercises"]}
+      />
+      <Part
+        part={props.course.parts[2]["name"]}
+        exercise={props.course.parts[2]["exercises"]}
+      />
     </>
-  )
-}
+  );
+};
 
 const Total = (props) => {
   return (
     <>
-      <p>Number of exercises {props.e1 + props.e2 + props.e3}</p>
+      <p>
+        Number of exercises {props.e1 + props.e2 + props.e3}
+      </p>
     </>
-  )
-}
+  );
+};
 
 const App = () => {
   const course = {
@@ -39,30 +51,30 @@ const App = () => {
     parts: [
       {
         name: 'Fundamentals of React',
-        exercises: 10
+        exercises: 10,
       },
       {
         name: 'Using props to pass data',
-        exercises: 7
+        exercises: 7,
       },
       {
         name: 'State of a component',
-        exercises: 14
-      }
-    ]
-  }
-
+        exercises: 14,
+      },
+    ],
+  };
 
   return (
     <>
-      <Header course={course.name}/>
-      <Content course={course}/>
-      <Total 
-      e1 = {course.parts[0]["exercises"]} 
-      e2 = {course.parts[0]["exercises"]} 
-      e3 = {course.parts[0]["exercises"]}/>
+      <Header course={course.name} />
+      <Content course={course} />
+      <Total
+        e1={course.parts[0]["exercises"]}
+        e2={course.parts[1]["exercises"]}
+        e3={course.parts[2]["exercises"]}
+      />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
